@@ -1,0 +1,50 @@
+.off-canvas {
+  background: $black;
+
+  .off-canvas-logo {
+    @include xy-gutters($gutters: $grid-margin-gutters, $gutter-type: margin);
+    height: rem-calc(30);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .close-button {
+    color: $white;
+  }
+
+  .off-canvas-core-nav,
+  .off-canvas-account-nav {
+    li {
+      a {
+        padding: 1rem;
+        color: $white;
+        padding: 1rem;
+
+        &.button {
+          font-size: inherit;
+        }
+      }
+
+      ul {
+        a {
+          color: $white;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+
+  .off-canvas-custom-nav {
+    >  ul {
+      @include menu-base;
+      @include menu-direction($dir: vertical);
+
+      li {
+        a {
+          color: $white;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}

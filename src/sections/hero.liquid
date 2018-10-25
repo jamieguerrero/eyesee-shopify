@@ -1,0 +1,58 @@
+{%- comment -%}
+  Hero required settings
+  - Text: description of the block
+
+  Image is set in theme settings!
+{%- endcomment -%}
+
+<section class="hero" >
+  <div class="hero__text grid-inner-wrapper">
+    {% if section.settings.title != blank %}
+      <h1>{{ section.settings.title | escape }}</h1>
+    {% endif %}
+    {% if section.settings.text != blank %}
+      <div>{{ section.settings.text }}</div>
+    {% endif %}
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}">
+        {{ section.settings.button_label | escape }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Link Label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Image",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

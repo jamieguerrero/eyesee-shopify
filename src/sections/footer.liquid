@@ -1,0 +1,79 @@
+<footer class="grid-inner-wrapper padding-top-12">
+  <div class="footer-items">
+    {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+    <section class="footer-section">
+      <h3>CONTACT</h3>
+      <ul>
+        <li>{{ settings.phone_number }}</li>
+        <li>{{ settings.email_address }}</li>
+      </ul>
+    </section>
+    <section class="footer-section">
+      <h3>SOCIAL</h3>
+      <ul>
+        {% for social in social_accounts %}
+          {%- assign social_handle = social | handleize -%}
+          {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+          {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+          {% if settings[social_link] != blank %}
+            <li>
+              <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                <span class="social-icon">{% include social_icon %}</span>
+              </a>
+            </li>
+          {% endif %}
+
+        {% endfor %}
+      </ul>
+    </section>
+
+    {%- if section.settings.show_payment_icons %}
+      {% unless shop.enabled_payment_types == empty %}
+        <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+        <ul class="payment-icons">
+          {% for type in shop.enabled_payment_types %}
+            <li>
+              {{ type | payment_type_svg_tag: class: 'icon' }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endunless %}
+    {% endif -%}
+
+    <section class="footer-section">
+      <h3>NAV</h3>
+      {%- assign footer_linklist = section.settings.footer_linklist -%}
+      {% if linklists[footer_linklist].links.size > 0 %}
+        <ul>
+          {% for link in linklists[footer_linklist].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+  </div>
+
+  <div class="footer-logo padding-top-12">{% include 'eyesee-logo' %}</div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "First menu",
+        "default": "footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      }
+    ]
+  }
+
+{% endschema %}

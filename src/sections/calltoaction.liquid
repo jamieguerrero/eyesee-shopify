@@ -1,0 +1,60 @@
+{%- comment -%}
+  Call to Action required settings
+  - Image
+  - Text: description of the block
+  - Button Text
+  - Button Link
+{%- endcomment -%}
+
+<section class="call-to-action grid-inner-wrapper padding-top-12">
+    <div class="call-to-action__image">
+      <div class="call-to-action__text">
+        {% if section.settings.title != blank %}
+          <h2>{{ section.settings.title | escape }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <div>{{ section.settings.text }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="button_white">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Hero Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Link Label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Call to Action",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

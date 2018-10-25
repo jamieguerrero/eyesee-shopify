@@ -1,0 +1,82 @@
+.header-logo {
+  width: 125px;
+}
+
+.header-inner > .header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 154px;
+
+  .nav-wrapper  {
+    list-style-type: none;
+    margin: 0px;
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+
+    li {
+      float: left;
+      margin-left: 5px;
+
+      a {
+        color: $white;
+        font-size: 1.5rem;
+        font-family: $header-font-family;
+      }
+
+      a:hover {
+        color: $red;
+      }
+    }
+
+  }
+
+  .nav-right {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    width: 167px;
+
+    li {
+      float: left;
+      margin-left: 5px;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+
+      a {
+        color: $white;
+        font-size: 1rem;
+        font-family: $header-font-family;
+      }
+    }
+  }
+}
+
+// Animation for making smaller/colored on scroll
+// .header-inner.is-stuck {
+//   background-color: $black;
+//   transition: background-color 600ms ease-out;
+// }
+//
+// .header-inner.is-anchored > .header-wrapper {
+//   height: 154px;
+//   transition: height 600ms ease-out;
+// }
+//
+// .header-inner.is-stuck > .header-wrapper {
+//   height: 84px;
+//   transition: height 600ms ease-out;
+// }
+//
+// .sticky-container {
+//   transition: height 600ms ease-out;
+// }
+
+
+@include breakpoint(medium down) {
+}
+
+@include breakpoint(small down) {
+}
