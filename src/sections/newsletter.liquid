@@ -6,7 +6,7 @@
   - Heading: title of the newsletter section
   - Subheading: description of the newsletter section
 {%- endcomment -%}
-<section>
+<section class="grid-inner-wrapper">
   {% if section.settings.section_title != blank %}
     <label for="Email">{{ section.settings.section_title | escape }}</label>
   {% endif %}
