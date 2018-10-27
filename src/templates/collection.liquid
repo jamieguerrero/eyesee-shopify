@@ -39,9 +39,11 @@
             </a>
           {% endif %}
 
-          <p>
-            <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-          </p>
+          <strong>
+            <p>
+              <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+            </p>
+          </strong>
           <p>
             {% if product.compare_at_price > product.price %}
 
