@@ -314,7 +314,7 @@ section.hero:before {
 }
 
 // Create media queries to change background-image at smaller than 768 and 480
-@media only screen and (min-width : $tablet-breakpoint) {
+@media only screen and (min-width : $mobile-breakpoint) {
   section.hero {
     background-image: url({{ settings.hero_tablet | img_url: '1440x' }});
     background-size: cover;
