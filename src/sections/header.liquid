@@ -72,8 +72,7 @@
       <div class="pushy-content">
           <ul>
             <li>
-              <a href="/" class="logo-image">
-
+              <a href="/" class="logo-image-mobile">
                 {% if section.settings.logo != blank %}
                   {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
                   <img src="{{ section.settings.logo | img_url: image_size }}"

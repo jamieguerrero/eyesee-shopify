@@ -5,7 +5,12 @@
       <h3>CONTACT</h3>
       <ul>
         <li>{{ settings.phone_number }}</li>
-        <li>{{ settings.email_address }}</li>
+
+        {% capture email_link %}
+        mailto:{{settings.email_address}}?Subject=Hello
+        {% endcapture %}
+
+        <li><a href={{ email_link }} target="_top">{{ settings.email_address }}</a></li>
       </ul>
     </section>
     <section class="footer-section">
